@@ -26,7 +26,6 @@ const Comment = (props) => {
 
   return (
     <div>
-      {/* <h1>Comment: {comment.length}</h1> */}
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
@@ -36,16 +35,16 @@ const Comment = (props) => {
                 src={`https://loremflickr.com/600/400?random=${
                   Math.random() * 10
                 }`}
-                style={{ width: "80px", height: "80px", border: "5px solid black" }}
+                style={{ width: "50px", height: "50px", border: "2px solid blue" }}
               />
-              <Typography variant="caption">{email}</Typography>
+              <Typography variant="caption">{name}</Typography>
             </div>
           </Grid>
           <Grid item xs={8} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item>
                 <Typography gutterBottom variant="subtitle1">
-                  {name}
+                  {email}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                   {body}

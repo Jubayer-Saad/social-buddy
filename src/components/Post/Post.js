@@ -26,10 +26,10 @@ const Post = (props) => {
     const classes = useStyles();
 
 
-    // const handleClick = (postDetails) =>{
-    //    const url = `/post/${postDetails}`;
-    //    history.push(url);
-    // } 
+    const handleClick = (postDetails) =>{
+       const url = `/post/${postDetails}`;
+       history.push(url);
+    } 
 
     
 
@@ -50,12 +50,12 @@ const Post = (props) => {
           <Button size="small" color="primary">
             Share
           </Button>
-          <Button>
+          {/* <Button>
             <Link to={`/post/${id}`}>SEE MORE</Link>
-          </Button>
-          {/* <Button size="small" color="primary" onClick ={() => handleClick(id)} >
-            SEE MORE
           </Button> */}
+          <Button size="small" color="primary" onClick ={() => handleClick(id)} >
+            SEE MORE
+          </Button>
         </CardActions>
       </Card>
     );

@@ -11,15 +11,17 @@ import Comment from '../Comment/Comment';
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
-      marginTop: 20
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
     },
     title: {
-      fontSize: 1,
+      fontSize: 14,
     },
     pos: {
-      fontSize: 15,
-      color: 'blue',
-      marginRight: 450
+      marginBottom: 12,
     },
     inp: {
         marginBottom: 30,
@@ -27,9 +29,13 @@ const useStyles = makeStyles({
         height: 30,
         borderRadius: 20
     },
+    btn: {
+        marginLeft: 10
+    }
   });
+  
 const PostDetail = () => {
-    const [comment, setComment] = useState({})
+    const [comment, setComment] = useState([])
     const classes = useStyles();
 
     const [post, setPost] = useState({})
@@ -57,34 +63,30 @@ const PostDetail = () => {
 
     return (
         <div>
-            <Card className={classes.root}>
-                <CardActionArea>
-                <CardContent>
-                <Typography gutterBottom variant="body2" component="p">
-                        ID: {post.id}
-                </Typography>
-                <Typography gutterBottom variant="h4" component="h2">
-                        {post.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                        {post.body}
-                </Typography>
-                <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button>
-            SEE MORE
-          </Button>
-        </CardActions>
-            </CardContent>
-            </CardActionArea>
-        </Card>
-        
+          <Card className={classes.root}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+           ID: {post.id}
+        </Typography>
+        <Typography variant="h5" component="h2">
+        {post.title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+        {post.body}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+
+
+        <div>
         <h6>Comment: {comment.length}</h6>
         {
-            comment.map(comment => <Comment comment={comment}></Comment>)
+            comment.map(comment => <Comment key={comment.id} comment={comment}></Comment>)
         }
+        </div>
           <CardContent >
                 <input className={classes.inp} placeholder="write a reply" type="text"/>
                 <Button className={classes.btn} variant="contained" color="primary">
